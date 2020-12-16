@@ -29,9 +29,9 @@ function createFormHandler(e) {
   e.preventDefault()
   const nameInput = document.querySelector('#input-name').value
   const equipmentId = parseInt(document.querySelector('#equipments').value)
-  postSyllabus(nameInput, equipmentId)
+  postFetch(nameInput, equipmentId)
 }
 
 function postFetch(name, equipment_id) {
-
+  console.log(name, equipment_id)
 }
