@@ -31,3 +31,7 @@ function createFormHandler(e) {
   const equipmentId = parseInt(document.querySelector('#equipments').value)
   postSyllabus(nameInput, equipmentId)
 }
+
+function postFetch(name, equipment_id) {
+
+}
