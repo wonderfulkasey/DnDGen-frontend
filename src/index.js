@@ -33,28 +33,23 @@ function createFormHandler(e) {
 }
 
 function postFetch(name, equipment_id) {
-   
+  let bodyData = {name, equipment_id}
+
   fetch(endPoint, {
     // POST request
     method: "POST",
     headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({
-      name: name,
-      equipment_id: equipment_id
-    })
+    body: JSON.stringify(bodyData)
   })
   .then(response => response.json())
   .then(weapon => {
     console.log(weapon);
-    const weaponData = weapon.data
+   // const weaponData = weapon.data
     // render JSON response
-    const weaponMarkup = `
-    <div data-id=${weapon.id}>
-      <h3>${weaponData.attributes.name}</h3>
-      <button data-id=${weaponData.id}>edit</button>
-    </div>
-    <br><br>`;
-
-    document.querySelector('#weapon-container').innerHTML += weaponMarkup;
+   // const weaponMarkup = `
+    //<div data-id=${weapon.id}>
+    //  <h3>${weaponData.attributes.name}</h3>
+   //   <button data-id=${weaponData.id}>edit</button>
+   // </div>  <br><br>`;   document.querySelector('#weapon-container').innerHTML += weaponMarkup;
   })
 }
