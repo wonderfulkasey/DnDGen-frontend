@@ -33,14 +33,15 @@ function createFormHandler(e) {
 }
 
 function postFetch(name, equipment_id) {
-  console.log(name, equipment_id);
-  let bodyData = {name, equipment_id}
-
+   
   fetch(endPoint, {
     // POST request
     method: "POST",
     headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(bodyData)
+    body: JSON.stringify({
+      name: name,
+      equipment_id: equipment_id
+    })
   })
   .then(response => response.json())
   .then(weapon => {
