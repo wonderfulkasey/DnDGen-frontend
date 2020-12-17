@@ -50,11 +50,24 @@ function updateFormHandler(e) {
   const weapon = Weapon.findById(id);
   const name = e.target.querySelector('#input-name').value;
   const equipment_id = parseInt(e.target.querySelector('#equipments').value);
-  patchSyllabus(weapon, name, equipment_id)
+  patchWeapon(weapon, name, equipment_id)
 }
 
 
-
+function patchWeapon(weapon, name, equipment_id) {
+  const bodyJSON = { name, equipment_id }
+  fetch(`http://localhost:3000/weapons/${weapon.id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify(bodyJSON),
+  })
+    .then(res => res.json())
+    // updated weapon instance as JSON
+    .then(updatedNote => console.log(updatedNote));
+}
 
 
 function postFetch(name, equipment_id) {
