@@ -1,6 +1,7 @@
 const endPoint = "http://localhost:3000/weapons"
 
 document.addEventListener('DOMContentLoaded', () => {
+  //fetches and gets weapon list
   getWeaponing()
 
   let createWeaponForm = document.querySelector('#create-weapon-form')
@@ -23,6 +24,10 @@ function getWeaponing() {
           document.querySelector('#weapon-container').innerHTML += weaponMarkup
       })
     })
+}
+
+function render() {
+  
 }
 
 function createFormHandler(e) {
