@@ -44,6 +44,19 @@ function createFormHandler(e) {
 }
 
 
+function updateFormHandler(e) {
+  e.preventDefault();
+  const id = parseInt(e.target.dataset.id);
+  const weapon = Weapon.findById(id);
+  const name = e.target.querySelector('#input-name').value;
+  const equipment_id = parseInt(e.target.querySelector('#equipments').value);
+  patchSyllabus(weapon, name, equipment_id)
+}
+
+
+
+
+
 function postFetch(name, equipment_id) {
   //builds body object outside of fetch
   const bodyData = {name, equipment_id}
