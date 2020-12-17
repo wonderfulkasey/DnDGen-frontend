@@ -9,9 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const createWeaponForm = document.querySelector('#create-weapon-form')
   createWeaponForm.addEventListener('submit', (e) => createFormHandler(e))
  
-  /* weaponContainer.addEventListener('click', e => {
+  const weaponContainer = document.querySelector('#weapon-container')
+  weaponContainer.addEventListener('click', e => {
+    const id = parseInt(e.target.dataset.id);
+    const weapon = Weapon.findById(id);
+    console.log(weapon);
+  });
+   /*  weaponContainer.addEventListener('click', e => {
     console.log('clicked');
-  }); */
+  });  */
 })
 
 function getWeaponing() {
