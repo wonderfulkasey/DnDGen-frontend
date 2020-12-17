@@ -27,7 +27,14 @@ function getWeaponing() {
 }
 
 function render() {
-  
+  const weaponMarkup = `
+          <div data-id=${weapon.id}>
+            <h3>${weapon.attributes.name}</h3>
+          <button data-id=${weapon.id}>edit</button>
+          </div>
+          <br><br>`;
+
+  document.querySelector('#weapon-container').innerHTML += weaponMarkup;
 }
 
 function createFormHandler(e) {
