@@ -34,7 +34,7 @@ function createFormHandler(e) {
 
 
 function postFetch(name, equipment_id) {
-  //builds body outside of fetch
+  //builds body object outside of fetch
   const bodyData = {name, equipment_id}
 
   fetch(endPoint, {
@@ -49,6 +49,6 @@ function postFetch(name, equipment_id) {
     const newWeapon = new Weapon(weapon.data.id, weapon.data.attributes)
     
     // calls the render in weapon class
-    document.querySelector('#weapon-container').innerHTML += newWeapon.renderweaponCard();
+    document.querySelector('#weapon-container').innerHTML += newWeapon.renderWeaponCard();
   })
 }
