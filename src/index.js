@@ -3,11 +3,14 @@ const endPoint = "http://localhost:3000/weapons"
 document.addEventListener('DOMContentLoaded', () => {
   //fetches and gets weapon list
   getWeaponing()
-
-  let createWeaponForm = document.querySelector('#create-weapon-form')
+  // listens for 'submit' event on form and handles data
+  const createWeaponForm = document.querySelector('#create-weapon-form')
 
   createWeaponForm.addEventListener('submit', (e) => createFormHandler(e))
-});
+  weaponContainer.addEventListener('click', e => {
+    console.log('clicked');
+  });
+})
 
 function getWeaponing() {
   fetch(endPoint)
