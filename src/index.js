@@ -64,3 +64,7 @@ function postFetch(name, equipment_id) {
     document.querySelector('#weapon-container').innerHTML += newWeapon.renderWeaponCard();
   })
 }
+
+<div id="update-weapon">
+
+</div>
