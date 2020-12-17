@@ -15,10 +15,10 @@ function getWeaponing() {
     .then(weaponing => {
       weaponing.data.forEach(weapon => {
         //makes a new instance of Weapon clss for each weapon in DB array
-        let newWeapon = new Weapon(weapon.id, weapon.attributes)
+        const newWeapon = new Weapon(weapon.id, weapon.attributes)
 
-        //located in weapon class
-        document.querySelector('#weapon-container').innerHTML += newWeapon.renderweaponCard();
+        //render newweaponcard located in weapon class
+        document.querySelector('#weapon-container').innerHTML += newWeapon.renderWeaponCard();
       
       })
     })
