@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const createWeaponForm = document.querySelector('#create-weapon-form')
   createWeaponForm.addEventListener('submit', (e) => createFormHandler(e))
  
-  const weaponContainer = document.querySelector('#weapon-container')
+  /* const weaponContainer = document.querySelector('#weapon-container')
   weaponContainer.addEventListener('click', e => {
     const id = parseInt(e.target.dataset.id);
     const weapon = Weapon.findById(id);
-    console.log(weapon);
-  });
+    document.querySelector('#update-weapon').innerHTML = weapon.renderUpdateForm();
+  }); */
    /*  weaponContainer.addEventListener('click', e => {
     console.log('clicked');
   });  */
@@ -26,10 +26,10 @@ function getWeaponing() {
     .then(weaponing => {
       weaponing.data.forEach(weapon => {
         //makes a new instance of Weapon clss for each weapon in DB array
-        const newWeapon = new Weapon(weapon.id, weapon.attributes)
+        let newWeapon = new Weapon(weapon, weapon.attributes)
 
         //render newweaponcard located in weapon class
-        document.querySelector('#weapon-container').innerHTML += newWeapon.renderWeaponCard();
+        document.querySelector('#weapon-container').innerHTML += newWeapon.renderWeaponCard()
       
       })
     })
