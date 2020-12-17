@@ -54,17 +54,10 @@ function postFetch(name, equipment_id) {
     body: JSON.stringify(bodyData)
   })
   .then(response => response.json())
-  
   .then(weapon => {
+    console.log(weapon);
     const weaponData = weapon.data
-    // render JSON response
-    const weaponMarkup = `
-    <div data-id=${weapon.id}>
-      <h3>${weaponData.attributes.name}</h3>
-      <button data-id=${weaponData.id}>edit</button>
-    </div>  
-    <br><br>`;  
-
-    document.querySelector('#weapon-container').innerHTML += weaponMarkup;
+     
+    render(weaponData)
   })
 }
