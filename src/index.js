@@ -14,14 +14,12 @@ function getWeaponing() {
     .then(response => response.json())
     .then(weaponing => {
       weaponing.data.forEach(weapon => {
-        const weaponMarkup = `
-          <div data-id=${weapon.id}>
-            <h3>${weapon.attributes.name}</h3>
-            <button data-id=${weapon.id}>edit</button>
-          </div>
-          <br><br>`;
+        //makes a new instance of Weapon clss for each weapon in DB array
+        let newWeapon = new Weapon(weapon.id, weapon.attributes)
 
-          document.querySelector('#weapon-container').innerHTML += weaponMarkup
+        //located in weapon class
+        document.querySelector('#weapon-container').innerHTML += newWeapon.renderweaponCard();
+      
       })
     })
 }
@@ -44,7 +42,9 @@ function createFormHandler(e) {
   postFetch(nameInput, equipmentId)
 }
 
+
 function postFetch(name, equipment_id) {
+  //builds body outside of fetch
   const bodyData = {name, equipment_id}
 
   fetch(endPoint, {
@@ -55,9 +55,10 @@ function postFetch(name, equipment_id) {
   })
   .then(response => response.json())
   .then(weapon => {
-    console.log(weapon);
-    const weaponData = weapon.data
-     
-    render(weaponData)
+
+    const newWeapon = new Weapon(weapon.data.id, weapon.data.attributes)
+    
+    // calls the render in weapon class
+    document.querySelector('#weapon-container').innerHTML += newWeapon.renderweaponCard();
   })
 }

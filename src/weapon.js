@@ -1,6 +1,6 @@
 class Weapon {
-    constructor(id, weaponAttributes) {
-        this.id = id;
+    constructor(weapon, weaponAttributes) {
+        this.id = weapon.id;
         this.name = weaponAttributes.name;
         this.equipment = weaponAttributes.equipment;
         weapon.all.push(this);
