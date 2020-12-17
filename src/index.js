@@ -2,15 +2,16 @@ const endPoint = "http://localhost:3000/weapons"
 
 document.addEventListener('DOMContentLoaded', () => {
   //fetches and gets weapon list
+  console.log("DOM is Loaded");
   getWeaponing()
 
   // listens for 'submit' event on form and handles data
   const createWeaponForm = document.querySelector('#create-weapon-form')
   createWeaponForm.addEventListener('submit', (e) => createFormHandler(e))
  
-  weaponContainer.addEventListener('click', e => {
+  /* weaponContainer.addEventListener('click', e => {
     console.log('clicked');
-  });
+  }); */
 })
 
 function getWeaponing() {
@@ -51,7 +52,7 @@ function postFetch(name, equipment_id) {
   .then(weapon => {
     const weaponData = weapon.data
     //render JSON response
-    
+
     let newWeapon = new Weapon(weaponData, weaponData.attributes)
     // calls the render in weapon class
     document.querySelector('#weapon-container').innerHTML += newWeapon.renderWeaponCard();
