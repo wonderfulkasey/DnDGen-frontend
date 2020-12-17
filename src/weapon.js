@@ -3,7 +3,7 @@ class Weapon {
         this.id = weapon.id;
         this.name = weaponAttributes.name;
         this.equipment = weaponAttributes.equipment;
-        weapon.all.push(this);
+        Weapon.all.push(this);
       }
     
       renderweaponCard() {
