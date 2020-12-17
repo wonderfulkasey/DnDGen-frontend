@@ -18,7 +18,7 @@ class Weapon {
                 <br><br>`;
 
         static findbyId(id) {
-          return this.all.find(syllabus => syllabus.id === id);
+          return this.all.find(weapon => weapon.id === id);
         }
       }
 }
