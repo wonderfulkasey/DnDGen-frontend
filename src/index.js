@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // listens for 'submit' event on form and handles data
   const createWeaponForm = document.querySelector('#create-weapon-form')
   createWeaponForm.addEventListener('submit', (e) => createFormHandler(e))
-
-  const loginForm = document.querySelector("#login-form")
-  loginForm.addEventListener("submit", (e) => loginFormHandler(e))
 })
 
 function getWeaponing() {
@@ -26,32 +23,6 @@ function getWeaponing() {
       
       })
     })
-}
-
-function loginFormHandler(e) {
-  e.preventDefault()
-  const emailInput = e.target.querySelector("#login-email").value
-  const pwInput = e.target.querySelector("#login-password").value
-  loginFetch(emailInput, pwInput)
-}
-
-function loginFetch(email, password) {
-  const bodyData = {user: { email, password } }
-
-  fetch("http://localhost:3000/login", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(bodyData)
-  })
-  .then(response => response.json())
-  .then(json => {
-    localStorage.setItem('jwt_token', json.jwt)
-    renderUserProfile()
-  })
-}
-
-function renderUserProfile() {
-  console.log(localStorage.getItem('jwt_token'));
 }
 
 
