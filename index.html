@@ -10,6 +10,17 @@
 
     <body>
 
+      <div class="sort-menus">
+        <div class="sort-menu-children">
+        <label for="equipment"><strong>view by equipment type:</strong></label>
+        <select id="equipment" name="equipment">
+            <option value="spooky">spooky</option>
+            <option value="scratchy">scratchy</option>
+            <option value="splendid">splendid</option>
+        </select>
+        </div>
+    </div>
+
         <div class="form-container">
 
             <form id="create-weapon-form">
@@ -27,24 +38,17 @@
           
               <input id= 'create-button' type="submit" name="submit" value="Add New Weapon" class="submit">
             </form>
-          
+
+            
           </div>
 
 
-        <div id="weapon-container">
+          <div id="all-link">
+            <h3>weapons show</h3>
+          </div>
 
-        </div>
-
-        
-        <div id="update-weapon">
-
-        </div>  
-
-        <button type="button" class="btn btn-primary">Primary</button>
-        
-
+          
         <script type="text/javascript" src="src/index.js"></script>
-        <script type="text/javascript" src="src/weapon.js"></script>
-   
+       
       </body>
 </html>
