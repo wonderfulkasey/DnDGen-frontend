@@ -11,17 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const loginForm = document.querySelector("#login-form")
   loginForm.addEventListener("submit", (e) => loginFormHandler(e))
-
- 
-  /* const weaponContainer = document.querySelector('#weapon-container')
-  weaponContainer.addEventListener('click', e => {
-    const id = parseInt(e.target.dataset.id);
-    const weapon = Weapon.findById(id);
-    document.querySelector('#update-weapon').innerHTML = weapon.renderUpdateForm();
-  }); */
-   /*  weaponContainer.addEventListener('click', e => {
-    console.log('clicked');
-  });  */
 })
 
 function getWeaponing() {
