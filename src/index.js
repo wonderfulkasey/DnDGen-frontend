@@ -5,12 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM is Loaded");
   getWeaponing()
 
-  let createWeaponForm = document.querySelector('#create-weapon-form')
+  const createWeaponForm = document.querySelector('#create-weapon-form')
 
   createWeaponForm.addEventListener('submit', (e) = createFormHandler(e))
   // listens for 'submit' event on form and handles data
   //const createWeaponForm = document.querySelector('#create-weapon-form')
   //createWeaponForm.addEventListener('submit', (e) => createFormHandler(e))
+  const weaponContainer = document.querySelector('#weapon-container')
+  weaponContainer.addEventListener('click', e => {
+    console.log('clicked');
+  });
+
 })
 
 function getWeaponing() {
@@ -60,7 +65,7 @@ function postFetch(name, equipment_id) {
 
     //let newWeapon = new Weapon(weaponData, weaponData.attributes)
     // calls the render in weapon class
-    document.querySelector('#weapon-container').innerHTML += newWeapon.renderSyllabusCard();
+    document.querySelector('#weapon-container').innerHTML += newWeapon.renderweaponCard();
   })
 }
 
