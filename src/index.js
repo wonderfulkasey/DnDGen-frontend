@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = parseInt(e.target.dataset.id);
     const weapon = Weapon.findById(id);
     document.querySelector('#update-weapon').innerHTML = weapon.renderUpdateForm();
-
     //console.log('clicked');
   });
+
+  document.querySelector('#update-weapon').addEventListener('submit', e => updateFormHandler(e))
 
 })
 
@@ -49,6 +50,14 @@ function createFormHandler(e) {
   postFetch(nameInput, equipmentInput)
 }
 
+function updateFormHandler(e) {
+  e.preventDefault();
+  const id = parseInt(e.target.dataset.id);
+  const weapon = Weapon.findById(id);
+  const name = e.target.querySelector('#input-name').value;
+  const equipment_id = parseInt(e.target.querySelector('#equipment').value);
+  patchWeapon(weapon, name, equipment_id)
+}
 
 function postFetch(name, equipment_id) {
   //builds body object outside of fetch
