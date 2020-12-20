@@ -42,7 +42,7 @@ function createFormHandler(e) {
 
 function postFetch(name, equipment_id) {
   //builds body object outside of fetch
-  console.log(name, equipment_id);
+  //console.log(name, equipment_id);
   const bodyData = {name, equipment_id}
 
   fetch(endPoint, {
@@ -53,20 +53,14 @@ function postFetch(name, equipment_id) {
   })
   .then(response => response.json())
   .then(weapon => {
-    console.log(weapon);
-    const weaponData = weapon.data
+    //console.log(weapon);
+    //const weaponData = weapon.data
     //render JSON response
-    const weaponMarkup = ` 
-      <div data-id=${weapon.id}>
-      <h3>${weaponData.attributes.name}</h3>
-      <p>${weaponData.attributes.equipment.name}</p>
-      <button data-id=${weaponData.id}>edit</button>
-      </div>
-      <br><br>`;
+    const newWeapon = new Weapon(weapon.data.id, weapon.data.attributes)
 
     //let newWeapon = new Weapon(weaponData, weaponData.attributes)
     // calls the render in weapon class
-    document.querySelector('#weapon-container').innerHTML += weaponMarkup;
+    document.querySelector('#weapon-container').innerHTML += newWeapon.renderSyllabusCard();
   })
 }
 
