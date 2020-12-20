@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function getWeaponing() {
   fetch(endPoint)
     .then(response => response.json())
+
     .then(weaponing => {
       weaponing.data.forEach(weapon => {
         //makes a new instance of Weapon clss for each weapon in DB array
