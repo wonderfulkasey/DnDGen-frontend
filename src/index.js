@@ -74,22 +74,6 @@ function createFormHandler(e) {
 }
 
 
-function patchWeapon(weapon, name, equipment_id) {
-  const bodyJSON = { name, equipment_id }
-  fetch(`http://localhost:3000/weapons/${weapon.id}`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify(bodyJSON),
-  })
-    .then(res => res.json())
-    // updated weapon instance as JSON
-    .then(updatedNote => console.log(updatedNote));
-}
-
-
 function postFetch(name, equipment_id) {
   //builds body object outside of fetch
   const bodyData = {name, equipment_id}
