@@ -74,16 +74,6 @@ function createFormHandler(e) {
 }
 
 
-function updateFormHandler(e) {
-  e.preventDefault();
-  const id = parseInt(e.target.dataset.id);
-  const weapon = Weapon.findById(id);
-  const name = e.target.querySelector('#input-name').value;
-  const equipment_id = parseInt(e.target.querySelector('#equipments').value);
-  patchWeapon(weapon, name, equipment_id)
-}
-
-
 function patchWeapon(weapon, name, equipment_id) {
   const bodyJSON = { name, equipment_id }
   fetch(`http://localhost:3000/weapons/${weapon.id}`, {
