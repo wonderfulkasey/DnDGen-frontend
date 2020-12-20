@@ -62,7 +62,7 @@ function loginFetch(email, password) {
 }
 
 function renderUserProfile() {
-  console.log(localStorage.getItem('jwt_token');)
+  console.log(localStorage.getItem('jwt_token'));
 }
 
 
