@@ -76,3 +76,15 @@ function postFetch(name, equipment_id) {
     document.querySelector('#weapon-container').innerHTML += weaponMarkup;
   })
 }
+
+function render(weapon) {
+  const weaponMarkup = `
+          <div data-id=${weapon.id}>
+            <h3>${weapon.attributes.name}</h3>
+            <p>${weapon.attributes.equipment.name}</p>
+            <button data-id=${weapon.id}>edit</button>
+          </div>
+          <br><br>`;
+
+  document.querySelector('#weapon-container').innerHTML += weaponMarkup;
+}
