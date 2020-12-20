@@ -1,9 +1,9 @@
 class Weapon {
 
     constructor(weapon, weaponAttributes) {
-        this.id = weapon.id;
-        this.name = weaponAttributes.name;
-        this.equipment = weaponAttributes.equipment;
+        this.id = weapon.id
+        this.name = weaponAttributes.name
+        this.equipment = weaponAttributes.equipment
         Weapon.all.push(this)
         console.log(this);
       }
