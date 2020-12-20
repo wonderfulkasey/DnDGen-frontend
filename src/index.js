@@ -13,7 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
   //createWeaponForm.addEventListener('submit', (e) => createFormHandler(e))
   const weaponContainer = document.querySelector('#weapon-container')
   weaponContainer.addEventListener('click', e => {
-    console.log('clicked');
+    
+    const id = parseInt(e.target.dataset.id);
+    const weapon = Weapon.findById(id);
+    console.log(weapon);
+
+    //console.log('clicked');
   });
 
 })
