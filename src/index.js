@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // listens for 'submit' event on form and handles data
   const createWeaponForm = document.querySelector('#create-weapon-form')
   createWeaponForm.addEventListener('submit', (e) => createFormHandler(e))
+
+  const loginForm = document.querySelector("#login-form")
+  loginForm.addEventListener("submit", (e) => loginFormHandler(e))
+  
  
   /* const weaponContainer = document.querySelector('#weapon-container')
   weaponContainer.addEventListener('click', e => {
