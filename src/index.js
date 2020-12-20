@@ -83,6 +83,22 @@ function postFetch(name, equipment_id) {
   })
 }
 
+function patchWeapon(weapon, name, equipment_id) {
+  const bodyJSON = { name, equipment_id }
+  fetch(`http://localhost:3000/weapons/${weapon.id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify(bodyJSON),
+  })
+    .then(res => res.json())
+    //backend responds with new weapon instance as JSON
+    .then(updatedNote => console.log(updatedNote));
+}
+
+
 function render(weapon) {
   const weaponMarkup = `
           <div data-id=${weapon.id}>
