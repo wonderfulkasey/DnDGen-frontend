@@ -5,9 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM is Loaded");
   getWeaponing()
 
+  let createWeaponForm = document.querySelector('#create-weapon-form')
+
+  createWeaponForm.addEventListener('submit', (e) = createFormHandler(e))
   // listens for 'submit' event on form and handles data
-  const createWeaponForm = document.querySelector('#create-weapon-form')
-  createWeaponForm.addEventListener('submit', (e) => createFormHandler(e))
+  //const createWeaponForm = document.querySelector('#create-weapon-form')
+  //createWeaponForm.addEventListener('submit', (e) => createFormHandler(e))
 })
 
 function getWeaponing() {
