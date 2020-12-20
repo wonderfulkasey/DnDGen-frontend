@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const loginForm = document.querySelector("#login-form")
   loginForm.addEventListener("submit", (e) => loginFormHandler(e))
-  
+
  
   /* const weaponContainer = document.querySelector('#weapon-container')
   weaponContainer.addEventListener('click', e => {
@@ -37,6 +37,13 @@ function getWeaponing() {
       
       })
     })
+}
+
+function loginFormHandler(e) {
+  e.preventDefault()
+  const emailInput = e.target.querySelector("#login-email").value
+  const pwInput = e.target.querySelector("#login-password").value
+  loginFetch(emailInput, pwInput)
 }
 
 
