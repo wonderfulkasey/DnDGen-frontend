@@ -86,6 +86,7 @@ function postFetch(name, equipment_id) {
   })
   .then(response => response.json())
   .then(weapon => {
+    console.log(weapon);
     const weaponData = weapon.data
     //render JSON response
 
