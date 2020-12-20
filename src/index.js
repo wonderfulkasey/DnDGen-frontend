@@ -41,8 +41,9 @@ function getWeaponing() {
 function createFormHandler(e) {
   e.preventDefault()
   const nameInput = document.querySelector('#input-name').value
-  const equipmentId = parseInt(document.querySelector('#equipments').value)
-  postFetch(nameInput, equipmentId)
+  const equipmentInput = document.querySelector('#equipments').value
+  const equipmentId = parseInt
+  postFetch(nameInput, equipmentInput)
 }
 
 
