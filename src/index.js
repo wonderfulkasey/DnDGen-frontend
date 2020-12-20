@@ -1,4 +1,23 @@
-const endPoint = "http://localhost:3000/weapons"
+const BASE_URL = "http://localhost:3000/weapons"
+
+class Weapon {
+
+  constructor(weaponAttributes) {
+      this.id = id;
+      this.name = weaponAttributes.name;
+      this.equipment = weaponAttributes.equipment;
+    }
+  
+    render() {
+      return `
+              <div class="card">
+                <h3>${this.name}</h3>
+                <p>${this.equipment.name}</p>
+                <button data-id=${this.id}>edit</button>
+              </div>`
+
+}}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   //fetches and gets weapon list
@@ -6,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   getWeaponing()
 
   const createWeaponForm = document.querySelector('#create-weapon-form')
-
   createWeaponForm.addEventListener('submit', (e) = createFormHandler(e))
   // listens for 'submit' event on form and handles data
   //const createWeaponForm = document.querySelector('#create-weapon-form')
