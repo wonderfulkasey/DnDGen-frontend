@@ -1,5 +1,6 @@
 const endPoint = "http://localhost:3000/weapons"
 
+
 class Weapon {
 
     constructor(weapon, weaponAttributes) {
@@ -12,8 +13,8 @@ class Weapon {
       renderWeaponCard() {
         return `<div class="card">
                   <h3>${this.name}</h3>
-                  <p>${this.equipment}</p>
-                  <p>${this.id}</p>
+                  <p>equipment number: ${this.equipment}</p>
+                  <p>id number: ${this.id}</p>
                 </div>`
   
   }}
@@ -46,6 +47,7 @@ function getWeapons() {
       })
   }
 
+
   
 function createFormHandler(e) {
     e.preventDefault()
@@ -57,7 +59,7 @@ function createFormHandler(e) {
 
   function postFetch(name, equipment_id) {
     //builds body object outside of fetch
-    //console.log(name, equipment_id);
+
     const bodyData = {name, equipment_id}
   
     fetch(endPoint, {
@@ -78,4 +80,6 @@ function createFormHandler(e) {
       document.querySelector('#weapon-container').innerHTML += newWeapon.renderWeaponCard();
     })
   }
+
+  
   
