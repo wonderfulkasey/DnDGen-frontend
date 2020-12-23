@@ -1,53 +1,80 @@
-const BASE_URL = "http://localhost:3000"
-const WEAPONS_URL = `${BASE_URL}/weapons`
-
-
-const allWeapons = document.querySelector("#weapon-collection")
-
+const endPoint = "http://localhost:3000/weapons"
 
 class Weapon {
 
-  constructor(weaponAttributes) {
-      this.id = id;
-      this.name = weaponAttributes.name;
-      this.equipment = weaponAttributes.equipment_id;
-    }
+    constructor(weapon, weaponAttributes) {
+        this.id = weapon.id
+        this.name = weaponAttributes.name
+        this.equipment = weaponAttributes.equipment_id
+        console.log(this);
+      }
+    
+      renderWeaponCard() {
+        return `<div class="card">
+                  <h3>${this.name}</h3>
+                  <p>${this.equipment}</p>
+                  <p>${this.id}</p>
+                </div>`
   
-    render() {
-      return `<div class="card">
-                <h3>${this.name}</h3>
-                <p>${this.equipment_id}</p>
-                <p>${this.id}</p>
-              </div>`
-
-}}
+  }}
 
 
 
-function showAllWeapons(weaponArray){
-  allWeapons.innerHTML = `<h2 class="subheader"> All Weapons </h2>
-                          <h3 class="all-link">View All</h2>`
-  weaponArray.forEach(weapon => {
-    allWeapons.innerHTML += new Weapon(weapon).render()
-  })
-}
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("loaded");
+   
+    const createWeaponForm = document.querySelector("#create-weapon-form")
+    createWeaponForm.addEventListener("submit", (e) => createFormHandler(e))
 
-function fetchWeapons(){
-  fetch(WEAPONS_URL)
-  .then(res => res.json())
-  .then(weapons => showAllWeapons(weapons))
-}
+})
 
+function getWeapons() {
+    fetch(endPoint)
+      .then(response => response.json())
+  
+      .then(weapons => {
+        weapons.data.forEach(weapon => {
+          //makes a new instance of Weapon clss for each weapon in DB array
+          //let newWeapon = new Weapon(weapon, weapon.attributes)
+          let newWeapon = new Weapon(weapon, weapon.attributes)
+  
+          //render newweaponcard located in weapon class
+          document.querySelector('#weapon-container').innerHTML += newWeapon.renderWeaponCard()
+        
+        })
+      })
+  }
 
-//function to show all weapons
-//function to render all weapons
-//event listener to click and show
+  
+function createFormHandler(e) {
+    e.preventDefault()
+    const nameInput = document.querySelector('#input-name').value
+    const equipmentInput = document.querySelector('#equipments').value
+    postFetch(nameInput, equipmentInput)
+  }
+  
 
-
-//function to show all weapons by equipment
-//spooky, scratchy, splendid (1,2,3)
-//event listener to clickdown menu of 3 options
-
-//function to add a new weapon
-//event listener to put through
-
+  function postFetch(name, equipment_id) {
+    //builds body object outside of fetch
+    //console.log(name, equipment_id);
+    const bodyData = {name, equipment_id}
+  
+    fetch(endPoint, {
+      // POST request
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(bodyData)
+    })
+    .then(response => response.json())
+    .then(weapon => {
+      console.log(weapon);
+      const weaponData = weapon.data
+      //render JSON response
+      let newWeapon = new Weapon(weaponData, weaponData.attributes)
+  
+      //let newWeapon = new Weapon(weaponData, weaponData.attributes)
+      // calls the render in weapon class
+      document.querySelector('#weapon-container').innerHTML += newWeapon.renderWeaponCard();
+    })
+  }
+  
