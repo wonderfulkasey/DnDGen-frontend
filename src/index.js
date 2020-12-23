@@ -22,6 +22,7 @@ class Weapon {
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("loaded");
+    getWeapons()
    
     const createWeaponForm = document.querySelector("#create-weapon-form")
     createWeaponForm.addEventListener("submit", (e) => createFormHandler(e))
