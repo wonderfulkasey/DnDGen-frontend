@@ -49,7 +49,9 @@ function getWeapons() {
       })
   }
 
-
+function randomWord() {
+  
+}
   
 function createFormHandler(e) {
     e.preventDefault()
