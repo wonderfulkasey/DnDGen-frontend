@@ -23,6 +23,7 @@ class Weapon {
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("loaded");
+    getWeapons()
     
    
     const createWeaponForm = document.querySelector("#create-weapon-form")
@@ -31,17 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-
 function showAll() {
-  var div = document.getElementById("");  
-         if (div.style.display !== "none") 
-         {  
-             div.style.display = "none";  
-         }  
-         else
-         {  
-             div.style.display = "block";  
-         }  
+  
 }
 
 function showAllSpooky() {
