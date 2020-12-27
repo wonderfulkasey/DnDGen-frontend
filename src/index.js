@@ -50,7 +50,8 @@ function getWeapons() {
   }
 
 function randomWord() {
-  
+  clearExampleContainer()
+  fetch
 }
   
 function createFormHandler(e) {
