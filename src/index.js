@@ -32,14 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-function showAll() {
-  
-}
-
-function showAllSpooky() {
-  
-}
-
 function getWeapons() {
     fetch(endPoint)
       .then(response => response.json())
