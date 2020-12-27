@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const createWeaponForm = document.querySelector("#create-weapon-form")
     createWeaponForm.addEventListener("submit", (e) => createFormHandler(e))
 
+    
 })
 
 
@@ -49,9 +50,24 @@ function getWeapons() {
       })
   }
 
-function randomWord() {
-  clearExampleContainer()
-  fetch
+
+
+function fetchIdeas(){
+  fetch('https://random-word-api.herokuapp.com/word?number=5')
+
+  .then(response => response.json())
+  
+  .then(ideas => renderIdeas(ideas));
+}
+
+function renderIdeas(ideas){
+  document.querySelector('#idea-container').innerHTML = ""
+  ideas.forEach(idea => {
+    document.querySelector('#idea-container').innerHTML += `<div class="idea-container"
+    <h2>${idea.name}</h2>
+    <br>
+    `
+  })
 }
   
 function createFormHandler(e) {
