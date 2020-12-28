@@ -50,7 +50,9 @@ function getWeapons() {
       })
   }
 
-
+function getIdeas(){
+  fetchIdeas()
+}
 
 function fetchIdeas(){
   fetch('https://random-word-api.herokuapp.com/word?number=5')
@@ -60,15 +62,6 @@ function fetchIdeas(){
   .then(ideas => renderIdeas(ideas));
 }
 
-function renderIdeas(ideas){
-  document.querySelector('#idea-container').innerHTML = ""
-  ideas.forEach(idea => {
-    document.querySelector('#idea-container').innerHTML += `<div class="idea-container"
-    <h2>${idea.name}</h2>
-    <br>
-    `
-  })
-}
   
 function createFormHandler(e) {
     e.preventDefault()
