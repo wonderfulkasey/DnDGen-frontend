@@ -56,12 +56,6 @@ function fetchIdeas(){
   .then(response => response.json())
 
   .then(ideas => renderIdeas(ideas));
-
-  //.then(function (data) {
-  //  console.log(data);
-  //})
-
-  //.then(data => console.log(data));
 }
 
 function renderIdeas(ideas){
