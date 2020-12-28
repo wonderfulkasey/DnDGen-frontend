@@ -47,9 +47,7 @@ function getWeapons() {
 
 function fetchIdeas(){
   fetch('https://random-word-api.herokuapp.com/word?number=5')
-
   .then(response => response.json())
-
   .then(ideas => renderIdeas(ideas));
 }
 
@@ -64,6 +62,16 @@ function renderIdeas(ideas){
   })
 }
 
+
+function fetchSpooky(){
+  fetch(endPoint)
+  .then(response => response.json())
+  .then(spooky => renderSpooky(spooky));
+}
+
+function renderSpooky(spooky){
+  document.querySelector('#spooky')
+}
   
 function createFormHandler(e) {
     e.preventDefault()
@@ -74,7 +82,7 @@ function createFormHandler(e) {
   
   function postFetch(name, equipment_id) {
     //builds body object outside of fetch
-    
+
     const bodyData = {name, equipment_id}
   
     fetch(endPoint, {
