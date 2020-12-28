@@ -20,7 +20,6 @@ class Weapon {
   }}
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
     console.log("loaded");
     getWeapons()
@@ -50,16 +49,29 @@ function getWeapons() {
       })
   }
 
-function getIdeas(){
-  fetchIdeas()
-}
 
 function fetchIdeas(){
   fetch('https://random-word-api.herokuapp.com/word?number=5')
 
   .then(response => response.json())
-  
+
   .then(ideas => renderIdeas(ideas));
+
+  //.then(function (data) {
+  //  console.log(data);
+  //})
+
+  //.then(data => console.log(data));
+}
+
+function renderIdeas(ideas){
+  document.querySelector('#idea').innerHTML = ""
+  ideas.forEach(idea => {
+    document.querySelector('#idea').innerHTML += `<div class="idea">
+      <h2>${idea.name}</h2>
+       </br>
+    </div>`
+  })
 }
 
   
