@@ -66,11 +66,11 @@ function renderIdeas(ideas){
 function fetchSpooky(){
   fetch(endPoint)
   .then(response => response.json())
-  .then(spooky => renderSpooky(spooky));
+  .then();
 }
 
-function renderSpooky(spooky){
-  document.querySelector('#spooky')
+function renderSpooky(){
+ 
 }
   
 function createFormHandler(e) {
