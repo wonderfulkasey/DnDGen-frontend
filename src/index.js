@@ -68,7 +68,7 @@ function renderIdeas(ideas){
   document.querySelector('#idea').innerHTML = ""
   ideas.forEach(idea => {
     document.querySelector('#idea').innerHTML += `<div class="idea">
-      <h2>${idea.name}</h2>
+      <h2>${idea}</h2>
        </br>
     </div>`
   })
