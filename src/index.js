@@ -16,7 +16,6 @@ class Weapon {
                   <p>equipment number: ${this.equipment}</p>
                   <p>id number: ${this.id}</p>
                 </div>`
-  
   }}
 
 
@@ -24,11 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("loaded");
     getWeapons()
     
-   
     const createWeaponForm = document.querySelector("#create-weapon-form")
     createWeaponForm.addEventListener("submit", (e) => createFormHandler(e))
-
-    
 })
 
 
@@ -43,8 +39,7 @@ function getWeapons() {
           let newWeapon = new Weapon(weapon, weapon.attributes)
   
           //render newweaponcard located in weapon class
-          document.querySelector('#weapon-container').innerHTML += newWeapon.renderWeaponCard()
-        
+          document.querySelector('#weapon-container').innerHTML += newWeapon.renderWeaponCard()  
         })
       })
   }
@@ -57,6 +52,7 @@ function fetchIdeas(){
 
   .then(ideas => renderIdeas(ideas));
 }
+
 
 function renderIdeas(ideas){
   document.querySelector('#idea').innerHTML = ""
@@ -76,10 +72,9 @@ function createFormHandler(e) {
     postFetch(nameInput, equipmentInput)
   }
   
-
   function postFetch(name, equipment_id) {
     //builds body object outside of fetch
-
+    
     const bodyData = {name, equipment_id}
   
     fetch(endPoint, {
