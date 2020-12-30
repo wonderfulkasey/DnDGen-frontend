@@ -6,14 +6,16 @@ class Weapon {
     constructor(weapon, weaponAttributes) {
         this.id = weapon.id
         this.name = weaponAttributes.name
-        this.equipment = weaponAttributes.equipment_id
+        this.equipmentName = weaponAttributes.equipment_name
+        this.equipmentId = weaponAttributes.equipment_id
         console.log(this);
       }
     
       renderWeaponCard() {
         return `<div class="card">
                   <h2>${this.name}</h2>
-                  <p>equipment number: ${this.equipment}</p>
+                  <p>${this.equipmentName}</p>
+                  <p>equipment number: ${this.equipmentId}</p>
                   <p>id number: ${this.id}</p>
                 </div>`
   }}
