@@ -6,7 +6,6 @@ class Weapon {
     constructor(weapon, weaponAttributes) {
         this.id = weapon.id
         this.name = weaponAttributes.name
-        this.equipmentName = weaponAttributes.equipment_name
         this.equipmentId = weaponAttributes.equipment_id
         console.log(this);
       }
@@ -14,7 +13,6 @@ class Weapon {
       renderWeaponCard() {
         return `<div class="card">
                   <h2>${this.name}</h2>
-                  <p>${this.equipmentName}</p>
                   <p>equipment number: ${this.equipmentId}</p>
                   <p>id number: ${this.id}</p>
                 </div>`
@@ -64,16 +62,6 @@ function renderIdeas(ideas){
   })
 }
 
-
-function fetchSpooky(){
-  fetch(endPoint)
-  .then(response => response.json())
-  .then();
-}
-
-function renderSpooky(){
- 
-}
   
 function createFormHandler(e) {
     e.preventDefault()
