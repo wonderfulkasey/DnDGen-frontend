@@ -12,7 +12,7 @@ class Weapon {
     
       renderWeaponCard() {
         return `<div class="card">
-                  <h3>${this.name}</h3>
+                  <h2>${this.name}</h2>
                   <p>equipment number: ${this.equipment}</p>
                   <p>id number: ${this.id}</p>
                 </div>`
