@@ -25,6 +25,7 @@ class Weapon {
                   <h2>${this.name}</h2>
                   <p>equipment number: ${this.equipmentId}</p>
                   <p>id number: ${this.id}</p>
+                  <button onclick="deleteWeapon(${this.id})" id="button">Delete Weapon!</button>
                 </div>`
   }}
 //we use this weapon class cause we don't have these in ruby
@@ -81,6 +82,12 @@ function renderIdeas(ideas){
        </br>
     </div>`
   })
+}
+
+function deleteWeapon(w) {
+  console.log(w)
+
+  
 }
 
   
