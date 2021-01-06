@@ -74,7 +74,7 @@ function fetchIdeas(){
 
 function renderIdeas(ideas){
   document.querySelector('#idea').innerHTML = ""
-  //arrow function? with ideas
+  //arrow function with ideas
   ideas.forEach(idea => {
     document.querySelector('#idea').innerHTML += `<div class="idea">
       <h2>${idea}</h2>
