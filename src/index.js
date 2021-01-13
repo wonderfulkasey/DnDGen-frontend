@@ -8,7 +8,6 @@ const endPoint = "http://localhost:3000/weapons"
 //for if something goes wrong in code
 //converts the weapon model info into json
 
-
 //async callback- loads website, then getweapon and creates form
 //domcontent means loads the html page, but js source is in html
 document.addEventListener('DOMContentLoaded', () => {
@@ -61,6 +60,7 @@ function renderIdeas(ideas){
   })
 }
 
+
 function deleteWeapon(w) {
   console.log(w)
 
@@ -77,7 +77,8 @@ function createFormHandler(e) {
     postFetch(nameInput, equipmentInput)
   }
   
-  function postFetch(name, equipment_id) {
+
+function postFetch(name, equipment_id) {
     //builds body object outside of fetch
 
     const bodyData = {name, equipment_id}

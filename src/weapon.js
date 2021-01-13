@@ -1,4 +1,3 @@
-
 //the this value is used as a class context, aka is an object
 //this is bound to the object Weapon
 class Weapon {
